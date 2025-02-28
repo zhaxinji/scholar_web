@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}量子计算研究中心 - 联系我们{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>联系我们</h1>
+    </div>
+    
+    <div class="content-section">
+        <div class="section-title">
+            <h2>联系方式</h2>
+        </div>
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info mb-4">
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i> 地址</h4>
+                        <p>重庆市沙坪坝区大学城中路37号<br>重庆师范大学计算机与信息科学学院<br>量子计算研究中心</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4><i class="fas fa-phone mr-2"></i> 电话</h4>
+                        <p>+86 023-65362637</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4><i class="fas fa-envelope mr-2"></i> 电子邮件</h4>
+                        <p><a href="mailto:dongyumin@cqnu.edu.cn">dongyumin@cqnu.edu.cn</a></p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4><i class="fas fa-clock mr-2"></i> 办公时间</h4>
+                        <p>周一至周五: 9:00 - 17:00<br>周六、周日: 休息</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <h4 class="mb-4">给我们留言</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">电子邮件</label>
+                                <input type="email" class="form-control" id="email" placeholder="请输入您的电子邮件">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" class="form-control" id="subject" placeholder="请输入主题">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">留言内容</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="请输入您的留言内容"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="section-title">
+            <h2>交通指南</h2>
+        </div>
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="transportation-info">
+                        <h4>公共交通</h4>
+                        <ul>
+                            <li>地铁：乘坐轨道交通1号线至大学城站，从C出口出站，步行约15分钟可到达</li>
+                            <li>公交：乘坐232路、262路、281路至重庆师范大学站下车</li>
+                        </ul>
+                        
+                        <h4>自驾路线</h4>
+                        <ul>
+                            <li>从主城区：沿内环快速路至大学城出口，按指示牌行驶至重庆师范大学</li>
+                            <li>从机场：沿机场路、渝北区域快速路、内环快速路至大学城出口，按指示牌行驶至重庆师范大学</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="map-container">
+                        <img src="{{ url_for('static', filename='images/cqnu_gate.jpg') }}" alt="重庆师范大学地图" class="img-fluid rounded">
+                        <p class="text-center mt-2">重庆师范大学校门</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-info h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    
+    .contact-info p {
+        color: #555;
+        line-height: 1.6;
+    }
+    
+    .contact-form {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .contact-form h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    
+    .transportation-info h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .transportation-info ul {
+        padding-left: 20px;
+    }
+    
+    .transportation-info li {
+        margin-bottom: 10px;
+        color: #555;
+    }
+    
+    .map-container {
+        margin-top: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .contact-form {
+            margin-top: 30px;
+        }
+        
+        .map-container {
+            margin-top: 30px;
+        }
+    }
+</style>
+{% endblock %} 

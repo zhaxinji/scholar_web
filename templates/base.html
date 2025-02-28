@@ -27,7 +27,9 @@
         }
         .navbar-logo {
             height: 40px;
+            width: auto;
             margin-right: 10px;
+            object-fit: contain;
         }
         .navbar-brand-container {
             display: flex;
@@ -42,6 +44,7 @@
         @media (max-width: 768px) {
             .navbar-logo {
                 height: 30px;
+                width: auto;
             }
             .navbar-brand {
                 font-size: 0.95rem;
@@ -50,6 +53,7 @@
         @media (max-width: 576px) {
             .navbar-logo {
                 height: 25px;
+                width: auto;
             }
         }
         /* 移动端优化基础样式 */
@@ -77,12 +81,12 @@
 <body>
     <div class="page-container">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
                 <div class="container">
-                    <div class="navbar-brand-container">
-                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="重庆师范大学Logo" class="navbar-logo">
-                        <a class="navbar-brand" href="{{ url_for('home') }}">重庆师范大学量子计算研究中心</a>
-                    </div>
+                    <a class="navbar-brand" href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='images/cqnu_logo.jpg') }}" alt="Logo" class="navbar-logo">
+                        量子计算研究中心
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -102,6 +106,9 @@
                             </li>
                             <li class="nav-item {% if request.path == url_for('projects') %}active{% endif %}">
                                 <a class="nav-link" href="{{ url_for('projects') }}">研究项目</a>
+                            </li>
+                            <li class="nav-item {% if request.path == url_for('contact') %}active{% endif %}">
+                                <a class="nav-link" href="{{ url_for('contact') }}">联系我们</a>
                             </li>
                         </ul>
                     </div>

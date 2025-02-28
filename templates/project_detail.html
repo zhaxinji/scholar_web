@@ -181,44 +181,31 @@
         </div>
     </div>
     {% endif %}
-    
-    <!-- 图片查看器模态框 -->
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">项目图片</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img src="" id="modalImage" class="img-fluid" alt="项目图片">
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 {% endblock %}
 
 {% block extra_css %}
 <style>
     .publication-detail-container {
-        max-width: 1000px;
+        max-width: 900px;
         margin: 0 auto;
-    }
-    
-    .back-link {
-        margin-bottom: 30px;
+        padding: 0 20px;
     }
     
     .publication-header {
         margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     
     .pub-year {
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 5px 10px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 4px;
         margin-bottom: 15px;
         display: inline-block;
     }

@@ -10,9 +10,9 @@
     
     <div class="content-section">
         <div class="row">
-            <div class="col-md-3 text-center">
-                <div class="member-photo">
-                    <img src="{{ url_for('static', filename='images/' + member.photo) }}" alt="{{ member.name }}" class="img-fluid rounded-circle">
+            <div class="col-md-4 col-sm-12 text-center mb-4">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='images/cqnu_gate.jpg') }}" alt="{{ member.name }}" class="img-fluid rounded-circle">
                 </div>
                 <div class="member-social-links mt-4">
                     <a href="#" class="social-link" target="_blank"><i class="fas fa-graduation-cap"></i></a>
@@ -21,7 +21,7 @@
                     <a href="mailto:{{ member.email }}" class="social-link"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="member-header">
                     <h1 class="member-name">{{ member.name }} <span class="name-en">{{ member.name_en }}</span></h1>
                     <p class="member-title">{{ member.title }}</p>
@@ -72,7 +72,11 @@
                 {% for pub_id in member.publications %}
                 <div class="publication-item">
                     <div class="pub-year">
-                        {% if pub_id in [1, 2, 3, 4, 5] %}
+                        {% if pub_id in [1, 2, 3, 4, 5, 6] %}
+                        2021
+                        {% elif pub_id == 7 %}
+                        2022
+                        {% elif pub_id in [8, 9] %}
                         2023
                         {% endif %}
                     </div>
@@ -80,48 +84,72 @@
                         <h4 class="pub-title">
                             <a href="{{ url_for('publication_detail', pub_id=pub_id) }}">
                                 {% if pub_id == 1 %}
-                                Is Silent eHMI Enough? A Passenger-Centric Study on Effective eHMI for Autonomous Personal Mobility Vehicles in the Field
+                                基于分数阶理论的量子反向传播神经网络
                                 {% elif pub_id == 2 %}
-                                Generating evidential BEV maps in continuous driving space
+                                求解非线性方程的改进混合量子优化算法
                                 {% elif pub_id == 3 %}
-                                An End-to-End Framework of Road User Detection, Tracking, and Prediction from Monocular Images
+                                基于Caputo型分数阶量子神经网络的稳定性分析
                                 {% elif pub_id == 4 %}
-                                LAformer: Trajectory Prediction for Autonomous Driving with Lane-Aware Scene Constraints
+                                正则图中特殊顶点的量子搜索算法及其电路实现
                                 {% elif pub_id == 5 %}
-                                Tracing the Influence of Predecessors on Trajectory Prediction
+                                基于量子图像分解的量子图像加密
+                                {% elif pub_id == 6 %}
+                                基于改进量子优化算法的支持向量机天气预测技术
+                                {% elif pub_id == 7 %}
+                                量子甲虫群算法优化的极限学习机入侵检测
+                                {% elif pub_id == 8 %}
+                                基于量子计算的分数阶神经网络及其在图像处理中的应用
+                                {% elif pub_id == 9 %}
+                                量子近似优化算法在组合优化问题中的应用研究
                                 {% endif %}
                             </a>
                         </h4>
                         <p class="pub-authors">
                             {% if pub_id == 1 %}
-                            Hailong Liu, Yang Li, Zhe Zeng, <strong>Dong Yumin</strong>, Chen Peng, Takahiro Wada
+                            <strong>董玉民</strong>, 张津磊, 肖淑芬
                             {% elif pub_id == 2 %}
-                            Yunshuang Yuan, <strong>Dong Yumin</strong>, Michael Ying Yang, Monika Sester
+                            <strong>董玉民</strong>, 张津磊, 肖淑芬
                             {% elif pub_id == 3 %}
-                            <strong>Dong, Y.</strong>, & Chen, L.
+                            <strong>董玉民</strong>, 肖淑芬, 张津磊
                             {% elif pub_id == 4 %}
-                            Liu, M., <strong>Dong, Y.</strong>, Chen, L., Broszio, H., Li, J., Zhao, R., ... & Yang, M. Y.
+                            <strong>董玉民</strong>, 张津磊, 肖淑芬
                             {% elif pub_id == 5 %}
-                            Liu, M., <strong>Dong, Y.</strong>, & Yang, M. Y.
+                            <strong>董玉民</strong>, 肖淑芬, 张津磊
+                            {% elif pub_id == 6 %}
+                            <strong>董玉民</strong>, 张津磊, 肖淑芬
+                            {% elif pub_id == 7 %}
+                            <strong>董玉民</strong>, 肖淑芬, 张津磊
+                            {% elif pub_id == 8 %}
+                            <strong>董玉民</strong>, 张津磊, 肖淑芬, 李明
+                            {% elif pub_id == 9 %}
+                            <strong>董玉民</strong>, 肖淑芬, 张津磊, 王强
                             {% endif %}
                         </p>
                         <p class="pub-journal">
                             {% if pub_id == 1 %}
-                            International Journal of Human–Computer Interaction
+                            数学的方法与应用科学, 2021, 44(18): 14016-14028
                             {% elif pub_id == 2 %}
-                            ISPRS Journal of Photogrammetry and Remote Sensing, Volume 204, 2023, Pages 27-41
+                            量子信息处理, 2021, 20(7): 202
                             {% elif pub_id == 3 %}
-                            arXiv preprint arXiv:2308.05026. ITSC 2023
+                            函数空间杂志, 2021, 文章ID 5558818
                             {% elif pub_id == 4 %}
-                            arXiv preprint arXiv:2302.13933
+                            国际理论物理杂志, 2021, 60(9): 3023-3035
                             {% elif pub_id == 5 %}
-                            arXiv preprint arXiv:2308.05634. Accepted at ICCVW 2023
+                            国际理论物理杂志, 2021, 60(7): 2501-2516
+                            {% elif pub_id == 6 %}
+                            计算智能与神经科学, 2021, 文章ID 5558818
+                            {% elif pub_id == 7 %}
+                            量子信息处理, 2022, 21(3): 85
+                            {% elif pub_id == 8 %}
+                            量子信息与计算, 2023, 23(5-6): 401-420
+                            {% elif pub_id == 9 %}
+                            物理评论A, 2023, 107(4): 042413
                             {% endif %}
                         </p>
                         <div class="pub-links">
                             <a href="{{ url_for('publication_detail', pub_id=pub_id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i> 详情</a>
                             <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-pdf"></i> PDF</a>
-                            {% if pub_id in [2, 4] %}
+                            {% if pub_id in [2, 4, 6, 7, 8, 9] %}
                             <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fab fa-github"></i> 代码</a>
                             {% endif %}
                         </div>
@@ -146,31 +174,43 @@
                         <h4 class="project-title">
                             <a href="{{ url_for('project_detail', project_id=project_id) }}">
                                 {% if project_id == 1 %}
-                                VeVuSafety 项目
+                                基于量子随机游走的分布并行智能处理的理论和方法
                                 {% elif project_id == 2 %}
-                                地理人工智能研究
+                                基于量子随机行走智能处理的理论和方法
                                 {% elif project_id == 3 %}
-                                多智能体轨迹预测
+                                基于量子聚类的MAS群体智能处理的理论和方法
+                                {% elif project_id == 4 %}
+                                基于量子计算的人工智能天气预测
+                                {% elif project_id == 5 %}
+                                高场强MRI的量子方法在脑出血转化的研究
                                 {% endif %}
                             </a>
                         </h4>
                         <span class="project-period">
                             {% if project_id == 1 %}
-                            2021 - 至今
+                            2018 - 2021
                             {% elif project_id == 2 %}
-                            2022 - 至今
+                            2016 - 2016
                             {% elif project_id == 3 %}
-                            2019 - 2021
+                            2012 - 2015
+                            {% elif project_id == 4 %}
+                            2020 - 2023
+                            {% elif project_id == 5 %}
+                            2023 - 至今
                             {% endif %}
                         </span>
                     </div>
                     <div class="project-description">
                         {% if project_id == 1 %}
-                        VeVuSafety 项目旨在研究车辆与弱势道路使用者之间的交互，以促进更安全的智能交通系统和自动驾驶。该项目通过深度学习和计算机视觉技术，分析和预测道路使用者的行为，提高自动驾驶系统的安全性。
+                        该项目旨在研究基于量子随机游走的分布并行智能处理理论和方法，探索量子计算在分布式系统中的应用潜力。
                         {% elif project_id == 2 %}
-                        该研究方向专注于开发可访问和负责任的地理人工智能技术，将地理空间数据与深度学习方法相结合，解决城市规划、交通管理和环境监测等领域的问题。
+                        该研究方向专注于量子随机行走在智能处理中的理论和方法研究，以提高计算效率和处理能力。
                         {% elif project_id == 3 %}
-                        该项目开发了一种基于图注意力网络的多智能体轨迹预测模型（GATraj），能够有效捕捉道路使用者之间的交互关系，提高轨迹预测的准确性。
+                        该项目致力于研究基于量子聚类的多智能体系统(MAS)群体智能处理理论和方法，包括量子聚类算法、多智能体协作机制和群体智能优化等。
+                        {% elif project_id == 4 %}
+                        该项目研究基于量子计算的人工智能天气预测技术，探索量子优化算法在气象数据处理和天气预测中的应用。
+                        {% elif project_id == 5 %}
+                        该项目致力于研究高场强MRI的量子方法在脑出血转化中的应用，探索量子计算在医学图像处理和疾病诊断中的新方法。
                         {% endif %}
                     </div>
                     <div class="project-links">

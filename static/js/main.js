@@ -119,4 +119,58 @@ document.addEventListener('DOMContentLoaded', function() {
         section.classList.add('fade-section');
         sectionObserver.observe(section);
     });
+    
+    // 移动端导航栏优化
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    // 在移动端点击导航链接后自动收起菜单
+    if (window.innerWidth < 992) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    document.querySelector('.navbar-toggler').click();
+                }
+            });
+        });
+    }
+    
+    // 监听窗口大小变化，动态调整导航栏行为
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 992) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarCollapse.classList.contains('show')) {
+                        document.querySelector('.navbar-toggler').click();
+                    }
+                });
+            });
+        }
+    });
+    
+    // 移动端触摸优化
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isTouchDevice) {
+        // 为卡片元素添加触摸反馈
+        const cardElements = document.querySelectorAll('.card, .publication-item, .project-item, .team-member');
+        
+        cardElements.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+                this.style.transition = 'transform 0.2s ease';
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // 优化移动端滚动体验
+        document.addEventListener('touchmove', function(e) {
+            if (e.target.closest('.navbar-collapse.show')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
 }); 

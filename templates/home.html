@@ -7,11 +7,11 @@
     <div class="row align-items-center">
         <div class="col-md-4 col-sm-12 text-center mb-3 mb-md-0">
             <div class="lab-logo">
-                <img src="{{ url_for('static', filename='images/lab_logo.jpg') }}" alt="实验室标志" class="img-fluid rounded">
+                <img src="{{ url_for('static', filename='images/cqnu_gate.jpg') }}" alt="实验室标志" class="img-fluid rounded">
             </div>
         </div>
         <div class="col-md-8 col-sm-12">
-            <h1 class="lab-name">量子计算研究中心</h1>
+            <h1 class="lab-name">量子计算实验室</h1>
             <p class="lab-affiliation">重庆师范大学计算机与信息科学学院</p>
             <p class="lab-location"><i class="fas fa-map-marker-alt"></i> 中国重庆</p>
             <div class="contact-info">
@@ -42,87 +42,71 @@
     </div>
 </div>
 
-<div class="content-section">
-    <div class="section-title">
-        <h2>研究方向</h2>
-    </div>
-    <div class="section-content">
+<!-- 研究方向 -->
+<section id="research" class="py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h2>研究方向</h2>
+            <p class="text-muted">Our Research Directions</p>
+        </div>
         <div class="row">
-            <div class="col-md-4 col-sm-12 mb-4">
+            <div class="col-md-4 mb-4">
                 <div class="research-area-card">
-                    <div class="research-area-image">
-                        <img src="{{ url_for('static', filename='images/research1.jpg') }}" alt="量子算法与量子机器学习" class="img-fluid rounded">
-                    </div>
                     <div class="research-area-content">
                         <h3>量子算法与量子机器学习</h3>
-                        <p>开发新型量子算法和量子机器学习方法，探索量子计算在人工智能、材料科学和优化问题中的应用。</p>
-                        <a href="{{ url_for('research') }}" class="btn btn-outline-primary btn-sm">了解更多</a>
+                        <p>研究量子计算中的算法设计与优化，以及量子机器学习方法的开发与应用，探索量子计算在人工智能领域的潜力。</p>
+                        <a href="#research" class="btn btn-outline-primary btn-sm">了解更多</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 mb-4">
+            <div class="col-md-4 mb-4">
                 <div class="research-area-card">
-                    <div class="research-area-image">
-                        <img src="{{ url_for('static', filename='images/research2.jpg') }}" alt="量子纠错与容错量子计算" class="img-fluid rounded">
-                    </div>
-                    <div class="research-area-content">
-                        <h3>量子纠错与容错量子计算</h3>
-                        <p>研究量子纠错码和容错量子计算方案，克服量子系统中的噪声和退相干问题，为大规模量子计算奠定基础。</p>
-                        <a href="{{ url_for('research') }}" class="btn btn-outline-primary btn-sm">了解更多</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12 mb-4">
-                <div class="research-area-card">
-                    <div class="research-area-image">
-                        <img src="{{ url_for('static', filename='images/research3.jpg') }}" alt="量子材料模拟" class="img-fluid rounded">
-                    </div>
-                    <div class="research-area-content">
-                        <h3>量子材料模拟</h3>
-                        <p>利用量子计算模拟复杂材料的量子特性，加速新材料的发现和设计，推动材料科学的发展。</p>
-                        <a href="{{ url_for('research') }}" class="btn btn-outline-primary btn-sm">了解更多</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12 mb-4">
-                <div class="research-area-card">
-                    <div class="research-area-image">
-                        <img src="{{ url_for('static', filename='images/research4.jpg') }}" alt="量子通信与量子网络" class="img-fluid rounded">
-                    </div>
                     <div class="research-area-content">
                         <h3>量子通信与量子网络</h3>
-                        <p>研究量子通信协议和量子网络架构，开发安全、高效的量子通信系统，探索量子互联网的实现路径。</p>
-                        <a href="{{ url_for('research') }}" class="btn btn-outline-primary btn-sm">了解更多</a>
+                        <p>研究量子密钥分发、量子隐形传态等量子通信协议，以及量子中继器、量子路由等量子网络技术，构建安全高效的量子通信网络。</p>
+                        <a href="#research" class="btn btn-outline-primary btn-sm">了解更多</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 mb-4">
+            <div class="col-md-4 mb-4">
                 <div class="research-area-card">
-                    <div class="research-area-image">
-                        <img src="{{ url_for('static', filename='images/research5.jpg') }}" alt="量子机器学习" class="img-fluid rounded">
-                    </div>
                     <div class="research-area-content">
-                        <h3>量子机器学习</h3>
-                        <p>研究量子计算与机器学习的结合，开发量子神经网络、量子支持向量机等算法，提高机器学习模型的性能和效率。</p>
-                        <a href="{{ url_for('research') }}" class="btn btn-outline-primary btn-sm">了解更多</a>
+                        <h3>量子误差纠正与容错量子计算</h3>
+                        <p>研究量子纠错码的设计与优化，以及容错量子计算架构，提高量子计算的可靠性与稳定性。</p>
+                        <a href="#research" class="btn btn-outline-primary btn-sm">了解更多</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 mb-4">
+            <div class="col-md-4 mb-4">
                 <div class="research-area-card">
-                    <div class="research-area-image">
-                        <img src="{{ url_for('static', filename='images/research6.jpg') }}" alt="量子优化算法" class="img-fluid rounded">
-                    </div>
                     <div class="research-area-content">
-                        <h3>量子优化算法</h3>
-                        <p>开发基于量子计算的优化算法，解决传统计算难以处理的复杂优化问题，应用于组合优化、非线性方程求解等领域。</p>
-                        <a href="{{ url_for('research') }}" class="btn btn-outline-primary btn-sm">了解更多</a>
+                        <h3>量子模拟与量子化学</h3>
+                        <p>利用量子计算机模拟量子多体系统与复杂分子结构，加速材料设计与药物研发过程。</p>
+                        <a href="#research" class="btn btn-outline-primary btn-sm">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="research-area-card">
+                    <div class="research-area-content">
+                        <h3>量子软件与量子编程</h3>
+                        <p>开发量子编程语言、量子算法库与量子软件开发工具，降低量子计算的使用门槛。</p>
+                        <a href="#research" class="btn btn-outline-primary btn-sm">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="research-area-card">
+                    <div class="research-area-content">
+                        <h3>量子信息理论</h3>
+                        <p>研究量子信息的基本理论，包括量子纠缠、量子信道容量、量子资源理论等，为量子技术发展提供理论基础。</p>
+                        <a href="#research" class="btn btn-outline-primary btn-sm">了解更多</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <div class="content-section">
     <div class="section-title">
@@ -216,126 +200,71 @@
 <style>
     .lab-header {
         margin-bottom: 40px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid #eee;
     }
     
-    .lab-logo img {
-        max-width: 200px;
-        border: 5px solid #f8f9fa;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    .lab-logo {
+        max-width: 300px;
+        margin: 0 auto;
     }
     
     .lab-name {
         font-size: 2.2rem;
         font-weight: 700;
-        margin-bottom: 15px;
         color: #2c3e50;
+        margin-bottom: 10px;
     }
     
     .lab-affiliation {
         font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-    
-    .lab-location {
         color: #7f8c8d;
         margin-bottom: 15px;
     }
     
-    .lab-links {
-        margin-top: 15px;
+    .lab-location {
+        color: #7f8c8d;
+        margin-bottom: 20px;
     }
     
-    .lab-links .btn {
+    .contact-info {
+        margin-bottom: 20px;
+    }
+    
+    .lab-links a {
         margin-right: 10px;
         margin-bottom: 10px;
     }
     
     .research-area-card {
-        background-color: #fff;
+        background-color: #f8f9fa;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        padding: 25px;
         height: 100%;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 20px;
+        border-left: 4px solid #3498db;
     }
     
     .research-area-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     
-    .research-area-icon {
-        font-size: 2.5rem;
-        color: #3498db;
-        margin-bottom: 15px;
+    .research-area-content {
+        padding: 15px 0;
     }
     
-    .research-area-card h3 {
+    .research-area-content h3 {
+        color: #2c3e50;
         font-size: 1.3rem;
-        font-weight: 600;
         margin-bottom: 15px;
-        color: #2c3e50;
     }
     
-    .team-member-card {
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        padding: 20px;
-        text-align: center;
-        height: 100%;
-        transition: all 0.3s ease;
-    }
-    
-    .team-member-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .team-member-link {
-        color: inherit;
-        text-decoration: none;
-        display: block;
-    }
-    
-    .team-member-link:hover {
-        text-decoration: none;
-        color: inherit;
-    }
-    
-    .team-member-photo {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 15px;
-        overflow: hidden;
-    }
-    
-    .team-member-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .team-member-name {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 5px;
-        color: #2c3e50;
-    }
-    
-    .team-member-title {
-        font-size: 0.9rem;
+    .research-area-content p {
         color: #7f8c8d;
-    }
-    
-    .news-items {
-        margin-top: 20px;
+        margin-bottom: 15px;
+        line-height: 1.6;
     }
     
     .news-item {
-        display: flex;
         margin-bottom: 20px;
         padding-bottom: 20px;
         border-bottom: 1px solid #eee;
@@ -343,61 +272,30 @@
     
     .news-item:last-child {
         border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
     }
     
     .news-date {
-        min-width: 100px;
-        font-weight: 600;
         color: #3498db;
-    }
-    
-    .news-content {
-        flex: 1;
-    }
-    
-    .publication-list {
-        margin-top: 20px;
-    }
-    
-    .publication-item {
-        display: flex;
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid #eee;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        padding: 20px;
-    }
-    
-    .publication-item:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    
-    .pub-year {
-        min-width: 60px;
         font-weight: 600;
-        color: #3498db;
-        font-size: 1.1rem;
-        padding-top: 5px;
+        margin-bottom: 5px;
     }
     
-    .pub-content {
-        flex: 1;
-        padding-left: 15px;
-    }
-    
-    .pub-title {
-        font-size: 1.25rem;
+    .news-title {
         font-weight: 600;
         margin-bottom: 10px;
-        color: #2c3e50;
-        line-height: 1.4;
-        padding: 5px 0;
     }
     
+    .education-item {
+        margin-bottom: 15px;
+    }
+    
+    .education-year {
+        color: #3498db;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    /* 论文和项目标题样式 */
     .pub-title a {
         color: #2c3e50;
         text-decoration: none;
@@ -409,31 +307,16 @@
         text-decoration: none;
     }
     
-    .pub-authors {
-        font-size: 0.95rem;
-        margin-bottom: 5px;
-        padding-left: 5px;
-    }
-    
-    .pub-journal {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        margin-bottom: 15px;
-        padding-left: 5px;
+    .pub-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        line-height: 1.4;
     }
     
     /* 移动端适配样式 */
     @media (max-width: 768px) {
-        .lab-header {
-            text-align: center;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .lab-logo img {
-            max-width: 150px;
-        }
-        
         .lab-name {
             font-size: 1.8rem;
         }
@@ -442,83 +325,12 @@
             font-size: 1rem;
         }
         
-        .research-area-card {
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .publication-item {
-            flex-direction: column;
-            padding: 15px;
-        }
-        
-        .pub-year {
-            min-width: auto;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e0e0e0;
-            width: 100%;
-        }
-        
-        .pub-content {
-            padding-left: 0;
+        .research-area-content h3 {
+            font-size: 1.2rem;
         }
         
         .pub-title {
-            font-size: 1.15rem;
-        }
-        
-        .pub-authors {
-            font-size: 0.9rem;
-            padding-left: 0;
-        }
-        
-        .pub-journal {
-            font-size: 0.85rem;
-            padding-left: 0;
-        }
-        
-        .news-item {
-            flex-direction: column;
-        }
-        
-        .news-date {
-            margin-bottom: 5px;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .lab-links .btn {
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-        }
-        
-        .section-title h2 {
-            font-size: 1.3rem;
-        }
-        
-        .card-title {
-            font-size: 1.1rem;
-        }
-        
-        .card-text {
-            font-size: 0.9rem;
-        }
-        
-        .project-title {
-            font-size: 1.1rem;
-        }
-        
-        .project-period {
-            font-size: 0.85rem;
-        }
-        
-        .project-funding {
-            font-size: 0.85rem;
-        }
-        
-        .project-description p {
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
     }
 </style>

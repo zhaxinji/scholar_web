@@ -22,7 +22,7 @@ def team():
     members = get_team_members()
     
     # 按年级分组
-    first_year = [members[i] for i in range(2, 9)]  # 7个一年级研究生
+    first_year = [members[i] for i in range(2, 8)]  # 6个一年级研究生
     second_year = [members[i] for i in range(9, 15)]  # 6个二年级研究生
     third_year = [members[i] for i in range(15, 21)]  # 6个三年级研究生
     
@@ -43,7 +43,7 @@ def get_team_members():
             "name_en": "Dong Yumin",
             "title": "团队负责人，教授",
             "email": "dongyumin@cqnu.edu.cn",
-            "photo": "profile.jpg",
+            "photo": "cqnu_gate.jpg",
             "bio": "董玉民是重庆师范大学计算机与信息科学学院的教授。他的研究兴趣包括量子计算、量子信息、人工智能、并行计算以及ERP等。",
             "education": [
                 {"year": "2007", "degree": "控制理论与控制工程博士学位", "institution": "华东理工大学，中国"},
@@ -51,20 +51,23 @@ def get_team_members():
                 {"year": "1988", "degree": "无线电专业学士学位", "institution": "辽宁大学，中国"}
             ],
             "research_interests": ["量子计算", "量子信息", "量子机器学习", "大模型", "智能体", "量子图像处理", "量子随机行走", "量子聚类"],
-            "publications": [1, 2, 3, 4, 5, 6, 7],
+            "publications": [1, 2, 3, 4, 5, 6, 7, 8, 9],
             "projects": [1, 2, 3, 4, 5]
         },
     }
     
     # 添加7个一年级硕士研究生
-    for i in range(2, 9):
+    first_year_names = ["查新纪", "陈群", "宋学亮", "江启浩", "杨渝楠", "蔡屿璐"]
+    first_year_names_en = ["Zha Xinji", "Chen Qun", "Song Xueliang", "Jiang Qihao", "Yang Yunan", "Cai Yulu"]
+    
+    for i, (name, name_en) in enumerate(zip(first_year_names, first_year_names_en), 2):
         members[i] = {
-            "name": f"研究生{i}",
-            "name_en": f"Student {i}",
+            "name": name,
+            "name_en": name_en,
             "title": "硕士研究生（一年级）",
-            "email": f"student{i}@cqnu.edu.cn",
-            "photo": f"member{i}.jpg",
-            "bio": f"研究生{i}是重庆师范大学计算机与信息科学学院的一年级硕士研究生。研究方向为量子计算与量子信息处理。",
+            "email": f"{name_en.lower().replace(' ', '')}@cqnu.edu.cn",
+            "photo": "cqnu_gate.jpg",
+            "bio": f"{name}是重庆师范大学计算机与信息科学学院的一年级硕士研究生。研究方向为量子计算与量子信息处理。",
             "education": [
                 {"year": "2023", "degree": "计算机科学学士学位", "institution": "重庆师范大学计算机与信息科学学院"}
             ],
@@ -74,14 +77,17 @@ def get_team_members():
         }
     
     # 添加6个二年级硕士研究生
-    for i in range(9, 15):
+    second_year_names = ["吴高杰", "刘丽诗", "丁焕欣", "吴双", "孙同磊", "倪啸峰"]
+    second_year_names_en = ["Wu Gaojie", "Liu Lishi", "Ding Huanxin", "Wu Shuang", "Sun Tonglei", "Ni Xiaofeng"]
+    
+    for i, (name, name_en) in enumerate(zip(second_year_names, second_year_names_en), 9):
         members[i] = {
-            "name": f"研究生{i}",
-            "name_en": f"Student {i}",
+            "name": name,
+            "name_en": name_en,
             "title": "硕士研究生（二年级）",
-            "email": f"student{i}@cqnu.edu.cn",
-            "photo": f"member{i}.jpg",
-            "bio": f"研究生{i}是重庆师范大学计算机与信息科学学院的二年级硕士研究生。研究方向为量子计算与量子信息处理。",
+            "email": f"{name_en.lower().replace(' ', '')}@cqnu.edu.cn",
+            "photo": "cqnu_gate.jpg",
+            "bio": f"{name}是重庆师范大学计算机与信息科学学院的二年级硕士研究生。研究方向为量子计算与量子信息处理。",
             "education": [
                 {"year": "2022", "degree": "计算机科学学士学位", "institution": "重庆师范大学计算机与信息科学学院"}
             ],
@@ -91,14 +97,17 @@ def get_team_members():
         }
     
     # 添加6个三年级硕士研究生
-    for i in range(15, 21):
+    third_year_names = ["颜瑞", "牟定康", "李菲菲", "朱婷婷", "尹深昊", "徐宸"]
+    third_year_names_en = ["Yan Rui", "Mou Dingkang", "Li Feifei", "Zhu Tingting", "Yin Shenhao", "Xu Chen"]
+    
+    for i, (name, name_en) in enumerate(zip(third_year_names, third_year_names_en), 15):
         members[i] = {
-            "name": f"研究生{i}",
-            "name_en": f"Student {i}",
+            "name": name,
+            "name_en": name_en,
             "title": "硕士研究生（三年级）",
-            "email": f"student{i}@cqnu.edu.cn",
-            "photo": f"member{i}.jpg",
-            "bio": f"研究生{i}是重庆师范大学计算机与信息科学学院的三年级硕士研究生。研究方向为量子计算与量子信息处理。",
+            "email": f"{name_en.lower().replace(' ', '')}@cqnu.edu.cn",
+            "photo": "cqnu_gate.jpg",
+            "bio": f"{name}是重庆师范大学计算机与信息科学学院的三年级硕士研究生。研究方向为量子计算与量子信息处理。",
             "education": [
                 {"year": "2021", "degree": "计算机科学学士学位", "institution": "重庆师范大学计算机与信息科学学院"}
             ],
@@ -254,7 +263,7 @@ def project_detail(project_id):
                 "在大规模数据处理中实现了量子加速",
                 "发表了多篇高水平学术论文"
             ],
-            "gallery_images": ["project1_img1.jpg", "project1_img2.jpg", "project1_img3.jpg"],
+            "gallery_images": ["cqnu_gate.jpg", "cqnu_gate.jpg", "cqnu_gate.jpg"],
             "related_publications": [1, 3, 4],
             "team_members": list(range(1, 8))  # 团队成员1-7
         },
@@ -271,7 +280,7 @@ def project_detail(project_id):
                 "实现了量子优化方法在组合问题中的应用",
                 "发表了多篇高水平学术论文"
             ],
-            "gallery_images": ["project2_img1.jpg", "project2_img2.jpg"],
+            "gallery_images": ["cqnu_gate.jpg", "cqnu_gate.jpg"],
             "related_publications": [2, 5],
             "team_members": list(range(6, 13))  # 团队成员6-12
         },
@@ -287,7 +296,7 @@ def project_detail(project_id):
                 "实现了群体智能在复杂问题中的应用",
                 "发表了多篇高水平学术论文"
             ],
-            "gallery_images": ["project3_img1.jpg", "project3_img2.jpg"],
+            "gallery_images": ["cqnu_gate.jpg", "cqnu_gate.jpg"],
             "code_link": "#",
             "related_publications": [3, 4, 5],
             "team_members": list(range(10, 17))  # 团队成员10-16
@@ -304,7 +313,7 @@ def project_detail(project_id):
                 "设计了量子-经典混合天气预测系统",
                 "发表了多篇高水平学术论文"
             ],
-            "gallery_images": ["project4_img1.jpg"],
+            "gallery_images": ["cqnu_gate.jpg"],
             "code_link": "#",
             "related_publications": [2, 6],
             "team_members": list(range(15, 20)) + [1]  # 团队成员15-19和1
@@ -322,7 +331,7 @@ def project_detail(project_id):
                 "在脑出血转化研究中取得初步成果",
                 "发表了相关学术论文"
             ],
-            "gallery_images": ["project5_img1.jpg", "project5_img2.jpg"],
+            "gallery_images": ["cqnu_gate.jpg", "cqnu_gate.jpg"],
             "code_link": "#",
             "related_publications": [4, 7],
             "team_members": list(range(5, 15)) + [1]  # 团队成员5-14和1
@@ -351,6 +360,16 @@ def linkedin():
 def email():
     # 重定向到邮件客户端
     return redirect("mailto:dongyumin@cqnu.edu.cn")
+
+@app.route('/news')
+def news():
+    # 新闻动态页面
+    return render_template('news.html')
+
+@app.route('/contact')
+def contact():
+    # 联系我们页面
+    return render_template('contact.html')
 
 if __name__ == '__main__':
     app.run(debug=True) 
