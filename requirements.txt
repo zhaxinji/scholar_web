@@ -1,0 +1,8 @@
+flask==2.3.3
+flask-bootstrap==3.3.7.1
+gunicorn==21.2.0
+waitress==3.0.2
+Jinja2>=3.0
+Werkzeug>=2.3.7
+click>=8.0
+itsdangerous>=2.0

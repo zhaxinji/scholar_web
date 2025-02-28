@@ -1,0 +1,414 @@
+{% extends "base.html" %}
+
+{% block title %}董玉民 - {{ project.title }}{% endblock %}
+
+{% block content %}
+<div class="publication-detail-container">
+    <div class="back-link mb-4">
+        <a href="{{ url_for('projects') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回所有项目</a>
+    </div>
+    
+    <div class="content-section">
+        <div class="publication-header">
+            <span class="pub-year badge badge-primary">{{ project.period }}</span>
+            <h1 class="pub-title">{{ project.title }}</h1>
+            {% if project.funding %}
+            <p class="pub-authors">{{ project.funding }}</p>
+            {% endif %}
+            {% if project.partners %}
+            <p class="pub-journal">
+                {% for partner in project.partners %}
+                {{ partner }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            {% endif %}
+        </div>
+        
+        <div class="publication-links">
+            {% if project.code_link %}
+            <a href="{{ project.code_link }}" class="btn btn-outline-secondary" target="_blank"><i class="fab fa-github"></i> 项目代码</a>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="section-title">
+            <h2>项目描述</h2>
+        </div>
+        <div class="section-content">
+            <div class="abstract">
+                <p>{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        {% if project.research_directions or project.research_content %}
+        <div class="col-md-6">
+            <div class="content-section">
+                <div class="section-title">
+                    <h2>研究方向</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="feature-list">
+                        {% if project.research_directions %}
+                            {% for direction in project.research_directions %}
+                            <li><i class="fas fa-angle-right"></i> {{ direction }}</li>
+                            {% endfor %}
+                        {% elif project.research_content %}
+                            {% for content in project.research_content %}
+                            <li><i class="fas fa-angle-right"></i> {{ content }}</li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if project.partners %}
+        <div class="col-md-6">
+            <div class="content-section">
+                <div class="section-title">
+                    <h2>合作伙伴</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="feature-list">
+                        {% for partner in project.partners %}
+                        <li><i class="fas fa-university"></i> {{ partner }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if project.application_areas %}
+        <div class="col-md-6">
+            <div class="content-section">
+                <div class="section-title">
+                    <h2>应用领域</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="feature-list">
+                        {% for area in project.application_areas %}
+                        <li><i class="fas fa-cogs"></i> {{ area }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    {% if project.achievements %}
+    <div class="content-section">
+        <div class="section-title">
+            <h2>项目成果</h2>
+        </div>
+        <div class="section-content">
+            <div class="achievements">
+                {% for achievement in project.achievements %}
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        {{ achievement }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if project.related_publications %}
+    <div class="content-section">
+        <div class="section-title">
+            <h2>相关论文</h2>
+        </div>
+        <div class="section-content">
+            <div class="related-publications">
+                <div class="row">
+                    {% for pub_id in project.related_publications %}
+                    <div class="col-md-6 mb-4">
+                        <div class="related-pub-card">
+                            <a href="{{ url_for('publication_detail', pub_id=pub_id) }}" class="related-pub-link">
+                                <div class="related-pub-content">
+                                    <h3 class="related-pub-title">
+                                        {% if pub_id == 1 %}
+                                        基于分数阶理论的量子反向传播神经网络
+                                        {% elif pub_id == 2 %}
+                                        求解非线性方程的改进混合量子优化算法
+                                        {% elif pub_id == 3 %}
+                                        基于Caputo型分数阶量子神经网络的稳定性分析
+                                        {% elif pub_id == 4 %}
+                                        正则图中特殊顶点的量子搜索算法及其电路实现
+                                        {% elif pub_id == 5 %}
+                                        基于量子图像分解的量子图像加密
+                                        {% elif pub_id == 6 %}
+                                        基于改进量子优化算法的支持向量机天气预测技术
+                                        {% elif pub_id == 7 %}
+                                        量子甲虫群算法优化的极限学习机入侵检测
+                                        {% elif pub_id == 8 %}
+                                        基于量子计算的分数阶神经网络及其在图像处理中的应用
+                                        {% elif pub_id == 9 %}
+                                        量子近似优化算法在组合优化问题中的应用研究
+                                        {% endif %}
+                                    </h3>
+                                    <div class="related-pub-meta">
+                                        <span class="related-pub-year">
+                                            {% if pub_id in [8, 9] %}
+                                            2023
+                                            {% elif pub_id == 7 %}
+                                            2022
+                                            {% elif pub_id in [1, 2, 3, 4, 5, 6] %}
+                                            2021
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="related-pub-arrow">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- 图片查看器模态框 -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">项目图片</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="modalImage" class="img-fluid" alt="项目图片">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .publication-detail-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .back-link {
+        margin-bottom: 30px;
+    }
+    
+    .publication-header {
+        margin-bottom: 30px;
+    }
+    
+    .pub-year {
+        font-size: 1rem;
+        padding: 5px 10px;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+    
+    .pub-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        line-height: 1.4;
+        padding: 10px 0;
+    }
+    
+    .pub-authors {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        padding-left: 5px;
+    }
+    
+    .pub-journal {
+        font-size: 1rem;
+        color: #7f8c8d;
+        margin-bottom: 20px;
+        padding-left: 5px;
+    }
+    
+    .publication-links {
+        margin-bottom: 30px;
+        padding-left: 5px;
+    }
+    
+    .publication-links .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .abstract {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border-left: 4px solid #3498db;
+    }
+    
+    .abstract p {
+        margin-bottom: 0;
+        line-height: 1.7;
+    }
+    
+    .feature-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .feature-list li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+    }
+    
+    .feature-list li i {
+        position: absolute;
+        left: 0;
+        top: 5px;
+        color: #3498db;
+    }
+    
+    .achievements {
+        margin-top: 20px;
+    }
+    
+    .achievement-item {
+        display: flex;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .achievement-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .achievement-icon {
+        min-width: 30px;
+        color: #f39c12;
+        font-size: 1.2rem;
+    }
+    
+    .achievement-content {
+        flex: 1;
+        padding-left: 15px;
+    }
+    
+    .related-publications {
+        margin-top: 20px;
+    }
+    
+    .related-pub-card {
+        display: flex;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .related-pub-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .related-pub-link {
+        display: flex;
+        padding: 20px;
+        color: inherit;
+        text-decoration: none;
+        height: 100%;
+    }
+    
+    .related-pub-link:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .related-pub-content {
+        flex: 1;
+    }
+    
+    .related-pub-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        line-height: 1.4;
+    }
+    
+    .related-pub-meta {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+    }
+    
+    .related-pub-arrow {
+        display: flex;
+        align-items: center;
+        color: #3498db;
+        margin-left: 15px;
+    }
+    
+    /* 移动端适配样式 */
+    @media (max-width: 768px) {
+        .pub-title {
+            font-size: 1.5rem;
+        }
+        
+        .pub-authors {
+            font-size: 1rem;
+        }
+        
+        .pub-journal {
+            font-size: 0.9rem;
+        }
+        
+        .abstract {
+            padding: 15px;
+        }
+        
+        .related-pub-title {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 图片查看器功能
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modalImage = document.getElementById('modalImage');
+        
+        galleryItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                modalImage.src = imgSrc;
+                $('#imageModal').modal('show');
+            });
+        });
+    });
+</script>
+{% endblock %} 

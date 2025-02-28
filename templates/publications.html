@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block title %}董玉民 - 量子计算研究中心 - 发表论文{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>发表论文</h1>
+</div>
+
+<div class="content-section">
+    <div class="section-title">
+        <h2>精选论文</h2>
+    </div>
+    <div class="section-content">
+        <div class="publication-list">
+            <div class="publication-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=9) }}">量子近似优化算法在组合优化问题中的应用研究</a></div>
+                    <div class="pub-authors">董玉民, 肖淑芬, 张津磊, 王强</div>
+                    <div class="pub-journal">物理评论A, 2023, 107(4): 042413</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=9) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">DOI</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                        <a href="#" class="btn btn-sm btn-outline-info">代码</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=8) }}">基于量子计算的分数阶神经网络及其在图像处理中的应用</a></div>
+                    <div class="pub-authors">董玉民, 张津磊, 肖淑芬, 李明</div>
+                    <div class="pub-journal">量子信息与计算, 2023, 23(5-6): 401-420</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=8) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">DOI</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                        <a href="#" class="btn btn-sm btn-outline-info">代码</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2022</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=7) }}">量子甲虫群算法优化的极限学习机入侵检测</a></div>
+                    <div class="pub-authors">董玉民, 肖淑芬, 张津磊</div>
+                    <div class="pub-journal">量子信息处理, 2022, 21(3): 85</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=7) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">DOI</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                        <a href="#" class="btn btn-sm btn-outline-info">代码</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=6) }}">基于改进量子优化算法的支持向量机天气预测技术</a></div>
+                    <div class="pub-authors">董玉民, 张津磊, 肖淑芬</div>
+                    <div class="pub-journal">计算智能与神经科学, 2021, 文章ID 5558818</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=6) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">DOI</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                        <a href="#" class="btn btn-sm btn-outline-info">代码</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-section">
+    <div class="section-title">
+        <h2>更早期论文</h2>
+    </div>
+    <div class="section-content">
+        <div class="publication-list">
+            <div class="publication-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=1) }}">基于分数阶理论的量子反向传播神经网络</a></div>
+                    <div class="pub-authors">董玉民, 张津磊, 肖淑芬</div>
+                    <div class="pub-journal">数学的方法与应用科学, 2021, 44(18): 14016-14028</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=1) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">DOI</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=2) }}">求解非线性方程的改进混合量子优化算法</a></div>
+                    <div class="pub-authors">董玉民, 张津磊, 肖淑芬</div>
+                    <div class="pub-journal">量子信息处理, 2021, 20(7): 202</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=2) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">DOI</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                        <a href="#" class="btn btn-sm btn-outline-info">代码</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=3) }}">基于Caputo型分数阶量子神经网络的稳定性分析</a></div>
+                    <div class="pub-authors">董玉民, 肖淑芬, 张津磊</div>
+                    <div class="pub-journal">函数空间杂志, 2021, 文章ID 5558818</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=3) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=4) }}">正则图中特殊顶点的量子搜索算法及其电路实现</a></div>
+                    <div class="pub-authors">董玉民, 张津磊, 肖淑芬</div>
+                    <div class="pub-journal">国际理论物理杂志, 2021, 60(9): 3023-3035</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=4) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                        <a href="#" class="btn btn-sm btn-outline-info">代码</a>
+                    </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content">
+                    <div class="pub-title"><a href="{{ url_for('publication_detail', pub_id=5) }}">基于量子图像分解的量子图像加密</a></div>
+                    <div class="pub-authors">董玉民, 肖淑芬, 张津磊</div>
+                    <div class="pub-journal">国际理论物理杂志, 2021, 60(7): 2501-2516</div>
+                    <div class="pub-links">
+                        <a href="{{ url_for('publication_detail', pub_id=5) }}" class="btn btn-sm btn-outline-primary">详情</a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .publication-list {
+        margin-top: 20px;
+    }
+    
+    .publication-item {
+        display: flex;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+    }
+    
+    .publication-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .pub-year {
+        min-width: 60px;
+        font-weight: 600;
+        color: #3498db;
+        font-size: 1.1rem;
+        padding-top: 5px;
+    }
+    
+    .pub-content {
+        flex: 1;
+        padding-left: 15px;
+    }
+    
+    .pub-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        line-height: 1.4;
+        padding: 5px 0;
+    }
+    
+    .pub-title a {
+        color: #2c3e50;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .pub-title a:hover {
+        color: #3498db;
+        text-decoration: none;
+    }
+    
+    .pub-authors {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+        padding-left: 5px;
+    }
+    
+    .pub-journal {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+        margin-bottom: 15px;
+        padding-left: 5px;
+    }
+    
+    .pub-links {
+        margin-top: 15px;
+        padding-left: 5px;
+    }
+    
+    .pub-links .btn {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    /* 移动端适配样式 */
+    @media (max-width: 768px) {
+        .publication-item {
+            flex-direction: column;
+            padding: 15px;
+        }
+        
+        .pub-year {
+            min-width: auto;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+            width: 100%;
+        }
+        
+        .pub-content {
+            padding-left: 0;
+        }
+        
+        .pub-title {
+            font-size: 1.15rem;
+        }
+        
+        .pub-authors {
+            font-size: 0.9rem;
+            padding-left: 0;
+        }
+        
+        .pub-journal {
+            font-size: 0.85rem;
+            padding-left: 0;
+        }
+        
+        .pub-links {
+            padding-left: 0;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .pub-links .btn {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .page-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .section-title h2 {
+            font-size: 1.3rem;
+        }
+    }
+</style>
+{% endblock %} 

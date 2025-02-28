@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block title %}董玉民 - 量子计算研究中心 - 团队成员{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>团队成员</h1>
+</div>
+
+<!-- 团队负责人 -->
+<div class="content-section">
+    <div class="section-title">
+        <h2>团队负责人</h2>
+    </div>
+    <div class="section-content">
+        <div class="team-lead">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="member-photo">
+                        <img src="{{ url_for('static', filename='images/' + team_lead.photo) }}" alt="{{ team_lead.name }}" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="member-info">
+                        <h3>{{ team_lead.name }} <span class="name-en">{{ team_lead.name_en }}</span></h3>
+                        <p class="member-title">{{ team_lead.title }}</p>
+                        <p class="member-email"><i class="fas fa-envelope"></i> {{ team_lead.email }}</p>
+                        <p class="member-bio">{{ team_lead.bio }}</p>
+                        <div class="member-interests">
+                            <h4>研究兴趣</h4>
+                            <ul>
+                                {% for interest in team_lead.research_interests %}
+                                <li>{{ interest }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="member-links">
+                            <a href="{{ url_for('member_detail', member_id=1) }}" class="btn btn-primary">查看详细资料</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 三年级研究生 -->
+<div class="content-section">
+    <div class="section-title">
+        <h2>三年级研究生</h2>
+    </div>
+    <div class="section-content">
+        <div class="team-members">
+            <div class="row">
+                {% for member in third_year %}
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="{{ url_for('static', filename='images/' + member.photo) }}" alt="{{ member.name }}" class="img-fluid rounded">
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ member.name }} <span class="name-en">{{ member.name_en }}</span></h4>
+                            <p class="member-title">{{ member.title }}</p>
+                            <p class="member-email"><i class="fas fa-envelope"></i> {{ member.email }}</p>
+                            <div class="member-links">
+                                <a href="{{ url_for('member_detail', member_id=loop.index + 14) }}" class="btn btn-sm btn-outline-primary">查看详细资料</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 二年级研究生 -->
+<div class="content-section">
+    <div class="section-title">
+        <h2>二年级研究生</h2>
+    </div>
+    <div class="section-content">
+        <div class="team-members">
+            <div class="row">
+                {% for member in second_year %}
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="{{ url_for('static', filename='images/' + member.photo) }}" alt="{{ member.name }}" class="img-fluid rounded">
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ member.name }} <span class="name-en">{{ member.name_en }}</span></h4>
+                            <p class="member-title">{{ member.title }}</p>
+                            <p class="member-email"><i class="fas fa-envelope"></i> {{ member.email }}</p>
+                            <div class="member-links">
+                                <a href="{{ url_for('member_detail', member_id=loop.index + 8) }}" class="btn btn-sm btn-outline-primary">查看详细资料</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 一年级研究生 -->
+<div class="content-section">
+    <div class="section-title">
+        <h2>一年级研究生</h2>
+    </div>
+    <div class="section-content">
+        <div class="team-members">
+            <div class="row">
+                {% for member in first_year %}
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="{{ url_for('static', filename='images/' + member.photo) }}" alt="{{ member.name }}" class="img-fluid rounded">
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ member.name }} <span class="name-en">{{ member.name_en }}</span></h4>
+                            <p class="member-title">{{ member.title }}</p>
+                            <p class="member-email"><i class="fas fa-envelope"></i> {{ member.email }}</p>
+                            <div class="member-links">
+                                <a href="{{ url_for('member_detail', member_id=loop.index + 1) }}" class="btn btn-sm btn-outline-primary">查看详细资料</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .team-lead {
+        margin-bottom: 30px;
+    }
+    
+    .member-photo {
+        margin-bottom: 20px;
+    }
+    
+    .member-photo img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .member-info h3, .member-info h4 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    
+    .name-en {
+        font-size: 0.8em;
+        color: #7f8c8d;
+        margin-left: 10px;
+    }
+    
+    .member-title {
+        color: #3498db;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    
+    .member-email {
+        color: #7f8c8d;
+        margin-bottom: 15px;
+    }
+    
+    .member-bio {
+        margin-bottom: 20px;
+        line-height: 1.7;
+    }
+    
+    .member-interests {
+        margin-bottom: 20px;
+    }
+    
+    .member-interests h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .member-interests ul {
+        list-style-type: none;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .member-interests li {
+        background-color: #f8f9fa;
+        padding: 5px 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+    
+    .member-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        height: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .member-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .member-links {
+        margin-top: 15px;
+    }
+    
+    /* 移动端适配样式 */
+    @media (max-width: 768px) {
+        .team-lead .row {
+            flex-direction: column;
+        }
+        
+        .member-photo {
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+        
+        .member-card {
+            margin-bottom: 20px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .member-interests li {
+            font-size: 0.8rem;
+        }
+        
+        .member-links .btn {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .page-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .section-title h2 {
+            font-size: 1.3rem;
+        }
+    }
+</style>
+{% endblock %} 

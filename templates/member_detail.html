@@ -1,0 +1,429 @@
+{% extends "base.html" %}
+
+{% block title %}量子计算研究中心 - {{ member.name }}{% endblock %}
+
+{% block content %}
+<div class="member-detail-container">
+    <div class="back-link mb-4">
+        <a href="{{ url_for('team') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回团队页面</a>
+    </div>
+    
+    <div class="content-section">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <div class="member-photo">
+                    <img src="{{ url_for('static', filename='images/' + member.photo) }}" alt="{{ member.name }}" class="img-fluid rounded-circle">
+                </div>
+                <div class="member-social-links mt-4">
+                    <a href="#" class="social-link" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:{{ member.email }}" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="member-header">
+                    <h1 class="member-name">{{ member.name }} <span class="name-en">{{ member.name_en }}</span></h1>
+                    <p class="member-title">{{ member.title }}</p>
+                    <p class="member-email"><i class="fas fa-envelope"></i> {{ member.email }}</p>
+                </div>
+                <div class="member-bio">
+                    <h3>个人简介</h3>
+                    <p>{{ member.bio }}</p>
+                </div>
+                <div class="member-research-interests">
+                    <h3>研究方向</h3>
+                    <div class="research-tags">
+                        {% for interest in member.research_interests %}
+                        <span class="research-tag">{{ interest }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="section-title">
+            <h2>教育背景</h2>
+        </div>
+        <div class="section-content">
+            <div class="education-timeline">
+                {% for edu in member.education %}
+                <div class="education-item">
+                    <div class="education-year">{{ edu.year }}</div>
+                    <div class="education-content">
+                        <h4 class="education-degree">{{ edu.degree }}</h4>
+                        <p class="education-institution">{{ edu.institution }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    {% if member.publications and member.publications|length > 0 %}
+    <div class="content-section">
+        <div class="section-title">
+            <h2>发表论文</h2>
+        </div>
+        <div class="section-content">
+            <div class="publications-list">
+                {% for pub_id in member.publications %}
+                <div class="publication-item">
+                    <div class="pub-year">
+                        {% if pub_id in [1, 2, 3, 4, 5] %}
+                        2023
+                        {% endif %}
+                    </div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">
+                            <a href="{{ url_for('publication_detail', pub_id=pub_id) }}">
+                                {% if pub_id == 1 %}
+                                Is Silent eHMI Enough? A Passenger-Centric Study on Effective eHMI for Autonomous Personal Mobility Vehicles in the Field
+                                {% elif pub_id == 2 %}
+                                Generating evidential BEV maps in continuous driving space
+                                {% elif pub_id == 3 %}
+                                An End-to-End Framework of Road User Detection, Tracking, and Prediction from Monocular Images
+                                {% elif pub_id == 4 %}
+                                LAformer: Trajectory Prediction for Autonomous Driving with Lane-Aware Scene Constraints
+                                {% elif pub_id == 5 %}
+                                Tracing the Influence of Predecessors on Trajectory Prediction
+                                {% endif %}
+                            </a>
+                        </h4>
+                        <p class="pub-authors">
+                            {% if pub_id == 1 %}
+                            Hailong Liu, Yang Li, Zhe Zeng, <strong>Dong Yumin</strong>, Chen Peng, Takahiro Wada
+                            {% elif pub_id == 2 %}
+                            Yunshuang Yuan, <strong>Dong Yumin</strong>, Michael Ying Yang, Monika Sester
+                            {% elif pub_id == 3 %}
+                            <strong>Dong, Y.</strong>, & Chen, L.
+                            {% elif pub_id == 4 %}
+                            Liu, M., <strong>Dong, Y.</strong>, Chen, L., Broszio, H., Li, J., Zhao, R., ... & Yang, M. Y.
+                            {% elif pub_id == 5 %}
+                            Liu, M., <strong>Dong, Y.</strong>, & Yang, M. Y.
+                            {% endif %}
+                        </p>
+                        <p class="pub-journal">
+                            {% if pub_id == 1 %}
+                            International Journal of Human–Computer Interaction
+                            {% elif pub_id == 2 %}
+                            ISPRS Journal of Photogrammetry and Remote Sensing, Volume 204, 2023, Pages 27-41
+                            {% elif pub_id == 3 %}
+                            arXiv preprint arXiv:2308.05026. ITSC 2023
+                            {% elif pub_id == 4 %}
+                            arXiv preprint arXiv:2302.13933
+                            {% elif pub_id == 5 %}
+                            arXiv preprint arXiv:2308.05634. Accepted at ICCVW 2023
+                            {% endif %}
+                        </p>
+                        <div class="pub-links">
+                            <a href="{{ url_for('publication_detail', pub_id=pub_id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i> 详情</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-pdf"></i> PDF</a>
+                            {% if pub_id in [2, 4] %}
+                            <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fab fa-github"></i> 代码</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if member.projects and member.projects|length > 0 %}
+    <div class="content-section">
+        <div class="section-title">
+            <h2>参与项目</h2>
+        </div>
+        <div class="section-content">
+            <div class="projects-list">
+                {% for project_id in member.projects %}
+                <div class="project-item">
+                    <div class="project-header">
+                        <h4 class="project-title">
+                            <a href="{{ url_for('project_detail', project_id=project_id) }}">
+                                {% if project_id == 1 %}
+                                VeVuSafety 项目
+                                {% elif project_id == 2 %}
+                                地理人工智能研究
+                                {% elif project_id == 3 %}
+                                多智能体轨迹预测
+                                {% endif %}
+                            </a>
+                        </h4>
+                        <span class="project-period">
+                            {% if project_id == 1 %}
+                            2021 - 至今
+                            {% elif project_id == 2 %}
+                            2022 - 至今
+                            {% elif project_id == 3 %}
+                            2019 - 2021
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="project-description">
+                        {% if project_id == 1 %}
+                        VeVuSafety 项目旨在研究车辆与弱势道路使用者之间的交互，以促进更安全的智能交通系统和自动驾驶。该项目通过深度学习和计算机视觉技术，分析和预测道路使用者的行为，提高自动驾驶系统的安全性。
+                        {% elif project_id == 2 %}
+                        该研究方向专注于开发可访问和负责任的地理人工智能技术，将地理空间数据与深度学习方法相结合，解决城市规划、交通管理和环境监测等领域的问题。
+                        {% elif project_id == 3 %}
+                        该项目开发了一种基于图注意力网络的多智能体轨迹预测模型（GATraj），能够有效捕捉道路使用者之间的交互关系，提高轨迹预测的准确性。
+                        {% endif %}
+                    </div>
+                    <div class="project-links">
+                        <a href="{{ url_for('project_detail', project_id=project_id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i> 项目详情</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .member-detail-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .member-photo {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 5px solid #f8f9fa;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .member-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .member-social-links {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f8f9fa;
+        color: #3498db;
+        margin: 0 5px;
+        transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+        background-color: #3498db;
+        color: #fff;
+        transform: translateY(-3px);
+    }
+    
+    .member-header {
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .member-name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+    
+    .name-en {
+        font-size: 1.3rem;
+        color: #7f8c8d;
+        font-weight: 400;
+    }
+    
+    .member-title {
+        font-size: 1.2rem;
+        color: #3498db;
+        margin-bottom: 10px;
+    }
+    
+    .member-email {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .member-bio h3, .member-research-interests h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .member-bio {
+        margin-bottom: 25px;
+    }
+    
+    .member-bio p {
+        line-height: 1.7;
+    }
+    
+    .research-tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .research-tag {
+        display: inline-block;
+        background-color: #f8f9fa;
+        color: #2c3e50;
+        padding: 6px 12px;
+        border-radius: 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+    }
+    
+    .research-tag:hover {
+        background-color: #e9ecef;
+        transform: translateY(-2px);
+    }
+    
+    .education-timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+    
+    .education-timeline:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        bottom: 5px;
+        width: 2px;
+        background-color: #3498db;
+    }
+    
+    .education-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .education-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .education-item:before {
+        content: '';
+        position: absolute;
+        left: -34px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #3498db;
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 2px #3498db;
+    }
+    
+    .education-year {
+        font-weight: 700;
+        color: #3498db;
+        margin-bottom: 10px;
+    }
+    
+    .education-degree {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #2c3e50;
+    }
+    
+    .education-institution {
+        color: #7f8c8d;
+    }
+    
+    .publications-list, .projects-list {
+        margin-top: 20px;
+    }
+    
+    .publication-item, .project-item {
+        display: flex;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .publication-item:last-child, .project-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .pub-year, .project-period {
+        min-width: 60px;
+        font-weight: 700;
+        color: #3498db;
+    }
+    
+    .pub-content, .project-content {
+        flex: 1;
+    }
+    
+    .pub-title, .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+    
+    .pub-title a, .project-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .pub-title a:hover, .project-title a:hover {
+        color: #3498db;
+    }
+    
+    .pub-authors, .pub-journal {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .pub-links, .project-links {
+        margin-top: 15px;
+    }
+    
+    .pub-links .btn, .project-links .btn {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .project-description {
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %} 

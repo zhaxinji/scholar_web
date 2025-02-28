@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+
+{% block title %}董玉民 - "{{ publication.title }}"{% endblock %}
+
+{% block content %}
+<div class="publication-detail-container">
+    <div class="back-link mb-4">
+        <a href="{{ url_for('publications') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回所有论文</a>
+    </div>
+    
+    <div class="content-section">
+        <div class="publication-header">
+            <span class="pub-year badge badge-primary">{{ publication.year }}</span>
+            <h1 class="pub-title">"{{ publication.title }}"</h1>
+            <p class="pub-authors">{{ publication.authors }}</p>
+            <p class="pub-journal"><em>{{ publication.journal.split(',')[0] }}</em>{% if ',' in publication.journal %}, {{ publication.journal.split(',', 1)[1] }}{% endif %}</p>
+        </div>
+        
+        <div class="publication-links">
+            {% if publication.doi %}
+            <a href="{{ publication.doi }}" class="btn btn-outline-primary" target="_blank"><i class="fas fa-external-link-alt"></i> DOI</a>
+            {% endif %}
+            
+            {% if publication.pdf_link %}
+            <a href="{{ publication.pdf_link }}" class="btn btn-outline-primary"><i class="fas fa-file-pdf"></i> PDF</a>
+            {% endif %}
+            
+            {% if publication.code_link %}
+            <a href="{{ publication.code_link }}" class="btn btn-outline-secondary"><i class="fab fa-github"></i> 代码</a>
+            {% endif %}
+            
+            <button class="btn btn-outline-info" id="citeButton"><i class="fas fa-quote-right"></i> 引用</button>
+        </div>
+        
+        <!-- 引用框 -->
+        <div id="citationBox" class="citation-box" style="display: none;">
+            <h4>引用格式</h4>
+            <div class="citation-formats">
+                <button class="btn btn-sm btn-outline-primary active">APA</button>
+                <button class="btn btn-sm btn-outline-primary">MLA</button>
+                <button class="btn btn-sm btn-outline-primary">Chicago</button>
+                <button class="btn btn-sm btn-outline-primary">Harvard</button>
+                <button class="btn btn-sm btn-outline-primary">BibTeX</button>
+            </div>
+            <div class="citation-text" id="citationText">
+                {% if publication.authors.count(',') > 2 %}
+                {{ publication.authors.split(',')[0] }} et al. ({{ publication.year }}). "{{ publication.title }}". <em>{{ publication.journal.split(',')[0] }}</em>{% if ',' in publication.journal %}, {{ publication.journal.split(',', 1)[1] }}{% endif %}.
+                {% else %}
+                {{ publication.authors }} ({{ publication.year }}). "{{ publication.title }}". <em>{{ publication.journal.split(',')[0] }}</em>{% if ',' in publication.journal %}, {{ publication.journal.split(',', 1)[1] }}{% endif %}.
+                {% endif %}
+            </div>
+            <button class="btn btn-outline-primary copy-citation">复制引用</button>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="section-title">
+            <h2>摘要</h2>
+        </div>
+        <div class="section-content">
+            <div class="abstract">
+                <p>{{ publication.abstract }}</p>
+            </div>
+            
+            {% if publication.keywords %}
+            <div class="keywords mt-4">
+                <h3>关键词</h3>
+                <div class="keyword-tags">
+                    {% for keyword in publication.keywords %}
+                    <span class="keyword-tag">{{ keyword }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if publication.related_publications %}
+    <div class="content-section">
+        <div class="section-title">
+            <h2>相关论文</h2>
+        </div>
+        <div class="section-content">
+            <div class="related-publications">
+                {% for pub_id in publication.related_publications %}
+                <div class="related-pub-item">
+                    <h3 class="related-pub-title">
+                        <a href="{{ url_for('publication_detail', pub_id=pub_id) }}">
+                        {% if pub_id == 1 %}
+                        "基于分数阶理论的量子反向传播神经网络"
+                        {% elif pub_id == 2 %}
+                        "求解非线性方程的改进混合量子优化算法"
+                        {% elif pub_id == 3 %}
+                        "基于Caputo型分数阶量子神经网络的稳定性分析"
+                        {% elif pub_id == 4 %}
+                        "正则图中特殊顶点的量子搜索算法及其电路实现"
+                        {% elif pub_id == 5 %}
+                        "基于量子图像分解的量子图像加密"
+                        {% elif pub_id == 6 %}
+                        "基于改进量子优化算法的支持向量机天气预测技术"
+                        {% elif pub_id == 7 %}
+                        "量子甲虫群算法优化的极限学习机入侵检测"
+                        {% elif pub_id == 8 %}
+                        "基于量子计算的分数阶神经网络及其在图像处理中的应用"
+                        {% elif pub_id == 9 %}
+                        "量子近似优化算法在组合优化问题中的应用研究"
+                        {% endif %}
+                        </a>
+                    </h3>
+                    <p class="related-pub-authors">
+                        {% if pub_id == 1 %}
+                        <strong>董玉民</strong>, 张津磊, 肖淑芬
+                        {% elif pub_id == 2 %}
+                        <strong>董玉民</strong>, 张津磊, 肖淑芬
+                        {% elif pub_id == 3 %}
+                        <strong>董玉民</strong>, 肖淑芬, 张津磊
+                        {% elif pub_id == 4 %}
+                        <strong>董玉民</strong>, 张津磊, 肖淑芬
+                        {% elif pub_id == 5 %}
+                        <strong>董玉民</strong>, 肖淑芬, 张津磊
+                        {% elif pub_id == 6 %}
+                        <strong>董玉民</strong>, 张津磊, 肖淑芬
+                        {% elif pub_id == 7 %}
+                        <strong>董玉民</strong>, 肖淑芬, 张津磊
+                        {% elif pub_id == 8 %}
+                        <strong>董玉民</strong>, 张津磊, 肖淑芬, 李明
+                        {% elif pub_id == 9 %}
+                        <strong>董玉民</strong>, 肖淑芬, 张津磊, 王强
+                        {% endif %}
+                    </p>
+                    <p class="related-pub-journal">
+                        {% if pub_id == 1 %}
+                        <em>数学的方法与应用科学</em>, 2021, 44(18): 14016-14028
+                        {% elif pub_id == 2 %}
+                        <em>量子信息处理</em>, 2021, 20(7): 202
+                        {% elif pub_id == 3 %}
+                        <em>函数空间杂志</em>, 2021, 文章ID 5558818
+                        {% elif pub_id == 4 %}
+                        <em>国际理论物理杂志</em>, 2021, 60(9): 3023-3035
+                        {% elif pub_id == 5 %}
+                        <em>国际理论物理杂志</em>, 2021, 60(7): 2501-2516
+                        {% elif pub_id == 6 %}
+                        <em>计算智能与神经科学</em>, 2021, 文章ID 5558818
+                        {% elif pub_id == 7 %}
+                        <em>量子信息处理</em>, 2022, 21(3): 85
+                        {% elif pub_id == 8 %}
+                        <em>量子信息与计算</em>, 2023, 23(5-6): 401-420
+                        {% elif pub_id == 9 %}
+                        <em>物理评论A</em>, 2023, 107(4): 042413
+                        {% endif %}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .publication-detail-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .publication-header {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .pub-year {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+    
+    .pub-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        line-height: 1.4;
+        padding: 10px 0;
+    }
+    
+    .pub-authors {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        padding-left: 5px;
+    }
+    
+    .pub-journal {
+        font-size: 1rem;
+        color: #7f8c8d;
+        margin-bottom: 20px;
+        padding-left: 5px;
+    }
+    
+    .publication-links {
+        margin-bottom: 30px;
+        padding-left: 5px;
+    }
+    
+    .publication-links .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .abstract {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border-left: 4px solid #3498db;
+    }
+    
+    .abstract p {
+        margin-bottom: 0;
+        line-height: 1.7;
+    }
+    
+    .keywords {
+        margin-top: 20px;
+    }
+    
+    .keywords h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .keyword-tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .keyword-tag {
+        display: inline-block;
+        background-color: #e9f7fe;
+        color: #3498db;
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .citation-box {
+        display: none;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .citation-text {
+        font-family: monospace;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 4px;
+        border: 1px solid #e9ecef;
+        margin-bottom: 15px;
+        white-space: pre-wrap;
+        overflow-x: auto;
+    }
+    
+    .citation-formats {
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .citation-formats .btn {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .related-publications {
+        margin-top: 30px;
+    }
+    
+    .related-publications h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+    
+    .related-pub-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        border-left: 3px solid #3498db;
+    }
+    
+    .related-pub-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .related-pub-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        padding: 5px 0;
+    }
+    
+    .related-pub-title a {
+        color: #2c3e50;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .related-pub-title a:hover {
+        color: #3498db;
+        text-decoration: none;
+    }
+    
+    .related-pub-authors {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        padding-left: 5px;
+    }
+    
+    .related-pub-journal {
+        font-size: 0.85rem;
+        color: #7f8c8d;
+        padding-left: 5px;
+    }
+    
+    /* 移动端适配样式 */
+    @media (max-width: 768px) {
+        .publication-detail-container {
+            padding: 0 10px;
+        }
+        
+        .publication-header {
+            padding: 15px;
+        }
+        
+        .pub-title {
+            font-size: 1.4rem;
+            padding: 5px 0;
+        }
+        
+        .pub-authors {
+            font-size: 0.95rem;
+        }
+        
+        .abstract {
+            padding: 15px;
+        }
+        
+        .citation-formats {
+            justify-content: center;
+        }
+        
+        .citation-formats .btn {
+            margin-bottom: 8px;
+        }
+        
+        .related-pub-title {
+            font-size: 1rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .publication-links .btn {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .keyword-tag {
+            font-size: 0.8rem;
+            padding: 3px 10px;
+        }
+        
+        .citation-text {
+            font-size: 0.85rem;
+            padding: 10px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const citeButton = document.getElementById('citeButton');
+        const citationBox = document.getElementById('citationBox');
+        
+        if (citeButton && citationBox) {
+            citeButton.addEventListener('click', function() {
+                if (citationBox.style.display === 'none' || citationBox.style.display === '') {
+                    citationBox.style.display = 'block';
+                } else {
+                    citationBox.style.display = 'none';
+                }
+            });
+        }
+        
+        const copyButtons = document.querySelectorAll('.copy-citation');
+        copyButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const citationText = document.getElementById('citationText').textContent;
+                navigator.clipboard.writeText(citationText).then(function() {
+                    button.textContent = '已复制!';
+                    setTimeout(function() {
+                        button.textContent = '复制引用';
+                    }, 2000);
+                });
+            });
+        });
+    });
+</script>
+{% endblock %} 
